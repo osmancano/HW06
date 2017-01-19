@@ -49,9 +49,19 @@ public class Ticket {
     }
 
     public String toString(){
-       String result = ""+this.numbers[0];
+        String result = "";
+        if(numbers[0] < 10){
+        result = result +"-"+"0"+this.numbers[0];
+        }else{
+            result = result +"-" + this.numbers[0];
+        }
+
        for(int i = 1; i < this.numbers.length; i++){
-           result = result+"-"+this.numbers[i];
+           if(numbers[i] < 10){
+               result = result +"-" +"0"+this.numbers[i];
+           }else{
+               result = result +"-" + this.numbers[i];
+           }
        }
        return result;
     }

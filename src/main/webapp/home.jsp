@@ -164,7 +164,7 @@
             <ul>
                 <c:forEach items="${ticket_list}" var="ticket">
 
-                    <li><strong><c:out value="${ticket.ticket}"/></strong></li>
+                    <li><strong><c:out value="${ticket}"/></strong></li>
 
                 </c:forEach>
 
