@@ -30,10 +30,9 @@ public class Ticket {
     public void generateTicket(){
         int randomNum;
         for (int i=0;i < 6; i++){
-             randomNum = randInt(MINNUM, MAXNUM);
-            while(contains(this.numbers,randomNum)) {
-                randomNum = randInt(1, 53);
-            }
+            do {
+                randomNum = randInt(MINNUM, MAXNUM);
+            }while(contains(this.numbers,randomNum));
             this.numbers[i] = randomNum;
         }
     }
@@ -50,18 +49,9 @@ public class Ticket {
 
     public String toString(){
         String result = "";
-        if(numbers[0] < 10){
-        result = result +"-"+"0"+this.numbers[0];
-        }else{
-            result = result +"-" + this.numbers[0];
-        }
-
+        result = result +"-"+String.format("%02d",this.numbers[0]);
        for(int i = 1; i < this.numbers.length; i++){
-           if(numbers[i] < 10){
-               result = result +"-" +"0"+this.numbers[i];
-           }else{
-               result = result +"-" + this.numbers[i];
-           }
+           result = result +"-"+String.format("%02d",this.numbers[i]);
        }
        return result;
     }
